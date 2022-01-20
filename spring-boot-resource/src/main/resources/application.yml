@@ -1,0 +1,33 @@
+server:
+  port: 8081
+  
+spring: 
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: tmtl5467
+    driver-class-name: org.postgresql.Driver
+
+  jpa: 
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties: 
+      hibernate: 
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp.use_jdbc_metadata_defaults: false
+      main:
+        allow-bean-definition-overriding: true
+    database: default
+
+security: 
+  oauth2:
+    client:
+      auto-approve-scopes: ".*"
+    authorization:
+      token-key-access: isAuthenticated()
+#kafka:
+#   bootstrapAddress: localhost:9092
+#message:
+#   topic: mytopic
+

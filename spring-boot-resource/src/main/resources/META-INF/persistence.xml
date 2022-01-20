@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="int-others-cryptocurrenty_api_resource">
+		<class>com.seekersbc.www.bittop.model.BankAccount</class>
+		<class>com.seekersbc.www.bittop.model.CryptoList</class>
+		<class>com.seekersbc.www.bittop.model.CryptoPrice</class>
+		<class>com.seekersbc.www.bittop.model.CurrencyRate</class>
+		<class>com.seekersbc.www.bittop.model.ExchangeHistory</class>
+		<class>com.seekersbc.www.bittop.model.ExchangeList</class>
+		<class>com.seekersbc.www.bittop.model.OauthClientDetails</class>
+		<class>com.seekersbc.www.bittop.model.UserAuth</class>
+		<class>com.seekersbc.www.bittop.model.UserList</class>
+		<class>com.seekersbc.www.bittop.model.UserWallet</class>
+		<class>com.seekersbc.www.bittop.model.WalletList</class>
+	</persistence-unit>
+</persistence>
