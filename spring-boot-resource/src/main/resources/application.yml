@@ -26,8 +26,8 @@ security:
       auto-approve-scopes: ".*"
     authorization:
       token-key-access: isAuthenticated()
-#kafka:
-#   bootstrapAddress: localhost:9092
-#message:
-#   topic: mytopic
+kafka:
+   bootstrapAddress: localhost:9092
+message:
+   topic: mytopic
 

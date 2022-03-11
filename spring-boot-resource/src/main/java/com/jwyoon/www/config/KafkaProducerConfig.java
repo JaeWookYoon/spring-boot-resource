@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ProducerFactory;
 
 import org.apache.kafka.common.serialization.StringSerializer;
 
-//@Configuration
+@Configuration
 public class KafkaProducerConfig {
 
 	@Value(value="${kafka.bootstrapAddress}")

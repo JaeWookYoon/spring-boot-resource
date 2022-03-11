@@ -35,24 +35,23 @@ public class PublicSelectController {
 
 	private final static String PATH_URL = "/select";
 
-	/*
-	 * @Autowired private MessageProducer producer ;
-	 * 
-	 * @Autowired private MessageConsumer consumer;
-	 */
+	
+	@Autowired
+	private MessageProducer producer;
+
+	@Autowired
+	private MessageConsumer consumer; 
 	
 	@Resource(name = "userListRepository")
 	private UserListRepository userListRepository;	
 	
 	@GetMapping(value=Constants.BASIC_URL + "/test")
 	public String test(String test) {
-		//producer.sendMessage("myTopic", "HELLO WORLD!");
+		producer.sendMessage("mytopic", test);
 		return userListRepository.findAll().get(0).getUserId();		
 	}
 	@GetMapping(value=Constants.BASIC_URL + "/test1")
-	public String test1(String test) {
-		//consumer.getLatch();
-		//consumer.getLatch2();
+	public String test1(String test) {		
 		return userListRepository.findAll().get(0).getUserId();		
 	}
 	@PostMapping(value = Constants.BASIC_URL + PATH_URL
