@@ -1,4 +1,4 @@
-package com.jwyoon.www.config;
+package com.jwyoon.www.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,8 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
-@EnableKafka
-@Configuration
+/*@EnableKafka
+@Configuration*/
 public class KafkaConsumerConfig {
 
 	@Value(value="${kafka.bootstrapAddress}")

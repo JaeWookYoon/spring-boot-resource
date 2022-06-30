@@ -5,8 +5,11 @@ import java.util.Random;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import com.jwyoon.www.repository.UserListRepository;
+
+import reactor.core.publisher.Mono;
 
 @Component
 public class RecommendCodeGenerator {
@@ -25,5 +28,11 @@ public class RecommendCodeGenerator {
 		String rnd = getRandom() + getRandom() + getRandom() + getRandom() + getRandom() + getRandom();
 		
 		return rnd;
-	}	
+	}
+	public static void main(String[]args) {
+		WebClient webClient = WebClient.create("http://localhost:8081");
+		Mono<String> res = webClient.get().uri("/timer")
+		.retrieve().bodyToMono(String.class);
+		res.subscribe(r->System.out.println(r));
+	}
 }

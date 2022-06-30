@@ -14,14 +14,13 @@ public class MessageConsumer {
 
 	private CountDownLatch latch = new CountDownLatch(1);
 
-	@KafkaListener(topics = { "${message.topic}" }, groupId = "foo", containerFactory = "kafkaListenerContainerFactory")
-	public void listenGroup(String message) {
-		System.out.println("RECEIVED = " + message + " group Id = foo");
-		latch.countDown();
-	}
-
-	public CountDownLatch getLatch() {
-		return latch;
-	}
+	/*
+	 * @KafkaListener(topics = { "${message.topic}" }, groupId = "foo",
+	 * containerFactory = "kafkaListenerContainerFactory") public void
+	 * listenGroup(String message) { System.out.println("RECEIVED = " + message +
+	 * " group Id = foo"); latch.countDown(); }
+	 * 
+	 * public CountDownLatch getLatch() { return latch; }
+	 */
 
 }

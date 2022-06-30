@@ -1,4 +1,4 @@
-package com.jwyoon.www.controlloer;
+package com.jwyoon.www.controller;
 
 import java.io.BufferedReader;
 import java.io.File;

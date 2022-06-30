@@ -1,4 +1,4 @@
-package com.jwyoon.www.config;
+package com.jwyoon.www.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
 
-@Configuration
+//@Configuration
 public class KafkaConfig {
 	@Value(value="${kafka.bootstrapAddress}")
 	private String bootStrapAddress;

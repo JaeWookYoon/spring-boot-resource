@@ -1,4 +1,4 @@
-package com.jwyoon.www.config;
+package com.jwyoon.www.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ProducerFactory;
 
 import org.apache.kafka.common.serialization.StringSerializer;
 
-@Configuration
+//@Configuration
 public class KafkaProducerConfig {
 
 	@Value(value="${kafka.bootstrapAddress}")

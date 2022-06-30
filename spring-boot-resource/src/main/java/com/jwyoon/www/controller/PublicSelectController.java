@@ -1,4 +1,4 @@
-package com.jwyoon.www.controlloer;
+package com.jwyoon.www.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
@@ -45,10 +45,18 @@ public class PublicSelectController {
 	@Resource(name = "userListRepository")
 	private UserListRepository userListRepository;	
 	
+	@GetMapping(value="/timer")
+	public String timerTest() {
+		try {
+			Thread.sleep(3000);			
+		}catch(Exception e) {			
+		}
+		return "¿Í¾Ñ´Ù";
+	}
 	@GetMapping(value=Constants.BASIC_URL + "/test")
 	public String test(String test) {
-		producer.sendMessage("mytopic", test);
-		return userListRepository.findAll().get(0).getUserId();		
+		//producer.sendMessage("mytopic", test);
+		return userListRepository.findAll().get(0).getUserId();
 	}
 	@GetMapping(value=Constants.BASIC_URL + "/test1")
 	public String test1(String test) {		
