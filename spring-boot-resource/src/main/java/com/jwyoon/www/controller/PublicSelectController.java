@@ -1,6 +1,7 @@
 package com.jwyoon.www.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.http.HttpHeaders;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.jwyoon.www.common.util.AES256Cipher;
 import com.jwyoon.www.common.util.BCUtils;
@@ -36,17 +38,27 @@ public class PublicSelectController {
 	private final static String PATH_URL = "/select";
 
 	
-	@Autowired
-	private MessageProducer producer;
-
-	@Autowired
-	private MessageConsumer consumer; 
+	private RestTemplate restTemplate = new RestTemplate();
+	
+	/*
+	 * @Autowired private MessageProducer producer;
+	 * 
+	 * @Autowired private MessageConsumer consumer;
+	 */
 	
 	@Resource(name = "userListRepository")
 	private UserListRepository userListRepository;	
 	
+	@GetMapping("testtest")
+	public void value() {
+		org.springframework.http.HttpHeaders header = restTemplate.headForHeaders("http://localhost:8081/public/timer");
+		System.out.println(header.getContentType());
+		System.out.println(header.getContentType());
+	}
+	
 	@GetMapping(value="/timer")
 	public String timerTest() {
+		System.out.println("»£√‚");
 		try {
 			Thread.sleep(3000);			
 		}catch(Exception e) {			
