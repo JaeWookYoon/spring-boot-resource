@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.web.socket.AbstractSecurit
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
-import org.springframework.web.socket.server.RequestUpgradeStrategy;
-import org.springframework.web.socket.server.standard.TomcatRequestUpgradeStrategy;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -19,19 +17,15 @@ public class WebSocketConfig extends AbstractSecurityWebSocketMessageBrokerConfi
 		
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
-		config.enableSimpleBroker("/topic" , "/queue"); //Î©îÎ™®Î¶? Í∏∞Î∞ò Î©îÏÑ∏Ïß? Î∏åÎ°úÏª§Í? ?ï¥?ãπ api Íµ¨ÎèÖ?ïòÍ≥? ?ûà?äî ?Å¥?ùº?ù¥?ñ∏?ä∏?óêÍ≤? Î©îÏÑ∏Ïß? ?†Ñ?ã¨//
-		config.setApplicationDestinationPrefixes("/app"); //?ÑúÎ≤ÑÏóê?Ñú ?Å¥?ùº?ù¥?ñ∏?ä∏Î°úÎ??Ñ∞ Î©îÏãúÏß?Î•? Î∞õÏùÑ api?ùò prefix
-		
-		//config.setUserDestinationPrefix("/user");
+		config.enableSimpleBroker("/topic" , "/queue"); 
+		config.setApplicationDestinationPrefixes("/app"); 		
 	}
 	
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {		
 		registry.addEndpoint("/secured")
 		.setAllowedOrigins("*")
-		.withSockJS().setInterceptors(httpHandshakeInterceptor());
-		//.setDisconnectDelay(600 * 1000)
-		 //?ó¨?ü¨Í∞?Ïß? End Point?Ñ§?†ï
+		.withSockJS().setInterceptors(httpHandshakeInterceptor());		
 	}
 	@Override
 	protected void customizeClientInboundChannel(ChannelRegistration registration) {
@@ -42,7 +36,8 @@ public class WebSocketConfig extends AbstractSecurityWebSocketMessageBrokerConfi
 	public HttpHandshakeInterceptor httpHandshakeInterceptor() {
 		return new HttpHandshakeInterceptor();
 	}
-	@Bean StompHandler stompHandler() {
+	@Bean 
+	StompHandler stompHandler() {
 		return new StompHandler();
 	}
 	@Override

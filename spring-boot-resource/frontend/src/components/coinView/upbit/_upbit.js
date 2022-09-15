@@ -26,14 +26,8 @@ export default {
         compareList:function(){            
             if(this.coinList[this.compareList.code] != this.compareList.trade_price){
                     this.coinList[this.compareList.code] = {"contPrice":this.compareList.trade_price,"updn":this.compareList.change};
-            }
-            /* this.compareList.forEach((cur,index,item)=>{
-                //console.log(cur.symbol.split("_")[0]);
-                if(this.coinList[cur.code] != cur.trade_price){
-                    this.coinList[cur.code] = {"contPrice":cur.trade_price,"updn":cur.change};
-                }
-            }); */
-            console.log("upbit change");
+            }            
+            //console.log("upbit change");
         }
     },
 
