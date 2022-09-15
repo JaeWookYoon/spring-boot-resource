@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
+  lintOnSave: false,
   outputDir: "../src/main/resources/static",  // 빌드 타겟 디렉토리
   devServer: {
     proxy: {
