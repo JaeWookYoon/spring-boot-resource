@@ -31,6 +31,8 @@ import com.jwyoon.www.model.UserList;
 import com.jwyoon.www.oauth.PasswordEncoders;
 import com.jwyoon.www.repository.UserListRepository;
 
+import io.reactivex.Observable;
+
 @RequestMapping(value = "/private", produces = "application/json")
 @RestController
 public class PrivateSelectController {
@@ -83,6 +85,7 @@ public class PrivateSelectController {
     }
     @GetMapping(value = Constants.BASIC_URL + "/fuck", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String testGet() {
+    	Observable.just("zz");
     	return "Fuck";
     }
 

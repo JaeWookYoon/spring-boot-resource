@@ -1,3 +1,4 @@
+
 package com.jwyoon.www.repository;
 
 import java.util.ArrayList;
@@ -19,10 +20,10 @@ public interface UserListRepository extends JpaRepository<UserList, String>{
 	 * userPhone); boolean existsByUserMobile(String userMobile); boolean
 	 * existsByRecommendCode(String recommendCode);
 	 */
-    static List<Integer> exam = new ArrayList<Integer>();
-    public static void main(String[]args) {
-    	exam.forEach(a -> System.out.println(a));
-    	
-    	System.out.println("END");
-    }
+	/*
+	 * static List<Integer> exam = new ArrayList<Integer>(); public static void
+	 * main(String[]args) { exam.forEach(a -> System.out.println(a));
+	 * 
+	 * System.out.println("END"); }
+	 */
 }

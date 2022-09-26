@@ -1,7 +1,6 @@
 package com.jwyoon.www.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.http.HttpHeaders;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -14,7 +13,6 @@ import javax.crypto.NoSuchPaddingException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,8 +25,6 @@ import org.springframework.web.client.RestTemplate;
 import com.jwyoon.www.common.util.AES256Cipher;
 import com.jwyoon.www.common.util.BCUtils;
 import com.jwyoon.www.common.util.Constants;
-import com.jwyoon.www.model.MessageConsumer;
-import com.jwyoon.www.model.MessageProducer;
 import com.jwyoon.www.repository.UserListRepository;
 
 @RequestMapping(value = "/public", produces = "application/json")
@@ -58,12 +54,12 @@ public class PublicSelectController {
 	
 	@GetMapping(value="/timer")
 	public String timerTest() {
-		System.out.println("È£Ãâ");
+		System.out.println("È£ï¿½ï¿½");
 		try {
 			Thread.sleep(3000);			
 		}catch(Exception e) {			
 		}
-		return "¿Í¾Ñ´Ù";
+		return "ï¿½Í¾Ñ´ï¿½";
 	}
 	@GetMapping(value=Constants.BASIC_URL + "/test")
 	public String test(String test) {

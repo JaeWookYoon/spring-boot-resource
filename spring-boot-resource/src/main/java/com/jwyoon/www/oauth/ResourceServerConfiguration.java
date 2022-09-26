@@ -1,6 +1,7 @@
 package com.jwyoon.www.oauth;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,7 +31,7 @@ import com.jwyoon.www.common.util.BCUtils;
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
     private String[] auths = new String[]{"ROLE_USER", "ROLE_ADMIN", "ROLE_SECOND_ON", "ROLE_SECOND_OFF", "ROLE_PHONE", "ROLE_OTP", "ROLE_EMAIL", "ROLE_ACCOUNT"};
-
+    private String[] allowHeader = new String[] {"http://localhost:8081","http://localhost:8080"};
     private AccessDeniedHandler accessDeniedHandler;
 
     @Resource(name = "dataSource")
@@ -39,7 +40,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         List<String> allowOrigin = new ArrayList<>();
-        allowOrigin.add("http://localhost:8081");
+        allowOrigin.addAll(Arrays.asList(allowHeader));
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(allowOrigin);
         configuration.addAllowedHeader("*");
@@ -74,16 +75,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
-        System.out.println(BCUtils.nowTime() + "configure(http)");
-
         http.headers().frameOptions().disable().and().cors().and().authorizeRequests()
                 .antMatchers("/secured/**").permitAll()
                 .antMatchers("/public/**").permitAll()
-                .antMatchers("/api/**").permitAll()
+                .antMatchers("/test/**").permitAll()                
+                .antMatchers("/resources/**").permitAll()
                 .antMatchers("/private/**").hasAnyAuthority(auths)
                 .antMatchers("/403").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated();        
 
     }
 }
