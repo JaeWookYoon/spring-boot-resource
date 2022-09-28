@@ -13,10 +13,10 @@ spring:
 spring:
   profiles: debug
   datasource:
-    username: admin
-    password: Rorlwlakfk18@
+    username: ENC(dS27bnAu1ent59/kxiNPLQ==)
+    password: ENC(8zIz7elyRxJZqTUCL2NXhoQUEelb+039)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@jakedbdb_high?TNS_ADMIN=./src/main/resources/wallet
+    url: ENC(AHSYchZMI+OYgSbNqVDL/4OBWDIDpqlDlNJj0AEsfqkR9IjNXj9MEWYCoUvPTaPcA0eKPOeaj+vuKguFPVVvLwI+uoDJSwK59aoR0+r6Eik=)
     
   jpa: 
     show-sql: true
@@ -31,10 +31,10 @@ spring:
 spring: 
   profiles: release
   datasource:
-    username: admin
-    password: Rorlwlakfk18@
+    username: ENC(JjIQfD5FgIZMhcGyMR+oRQ==)
+    password: ENC(Qt+sX9+pG90vsMqGoLyvG3I53rssKw/1)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@jakedbdb_high?TNS_ADMIN=./wallet
+    url: ENC(+p+4kvjeWyMSm8kjIEgAbeqnpPYNfUT9DcnInu6csaAzkBeziw2Glr7psOHvrV6uqCEH86bnguxOdt8lngLXTA==)
 
   jpa: 
     show-sql: true
@@ -64,4 +64,7 @@ kafka:
    bootstrapAddress: localhost:9092
 message:
    topic: mytopic
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
 
